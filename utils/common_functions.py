@@ -15,12 +15,13 @@ def _safe_name(s: str) -> str:
     return "".join(ch if ch.isalnum() or ch in "._-" else "_" for ch in str(s))
 
 def save_or_show(fig, out_dir: str | None, filename: str, show: bool = True):
+    savefig_kwargs={"bbox_inches":"tight", "pad_inches":0.1}
     if out_dir:
         dir = os.path.join(PLOTS_DIR, out_dir)
         os.makedirs(dir, exist_ok=True)
         path = os.path.join(dir, _safe_name(filename))
-        fig.savefig(path + ".svg", dpi=PLOT_DPI, )
-        fig.savefig(path + ".png", dpi=PLOT_DPI)
+        fig.savefig(path + ".svg", dpi=PLOT_DPI, **savefig_kwargs )
+        fig.savefig(path + ".png", dpi=PLOT_DPI, **savefig_kwargs)
     if show:
         plt.show()
     else:
