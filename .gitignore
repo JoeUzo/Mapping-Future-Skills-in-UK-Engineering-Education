@@ -1,3 +1,16 @@
 .env
 .venv
-data/
+*.egg-info
+logs/
+venv/
+.venv/
+.env
+*.env
+__pycache__/
+
+
+data/*
+!.gitignore
+!.dvc
+!*/.dvc
+/data
