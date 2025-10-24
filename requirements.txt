@@ -6,3 +6,5 @@ plotly
 pyarrow
 dvc[s3]
 notebook
+geopandas
+mapclassify
